@@ -9,7 +9,7 @@ const seattleShop = {
     randomCustPerHour: function(){
         return Math.floor(Math.random() * (this.maxCustHr - this.minCustHr + 1) + this.minCustHr);
     },
-    cookiesPerHourArr: [];
+    cookiesPerHourArr: [],
 };
 
 const tokyoShop = {
@@ -51,3 +51,36 @@ const limaShop = {
     },
     cookiesPerHourArr: [],
 };
+
+
+
+
+function populateHourlyUl() {
+
+// Create an "li" node:
+const node = document.createElement("li");
+
+// Create a text node:
+const textnode = document.createTextNode(randomCustPerHour());
+
+// Append the text node to the "li" node:
+node.appendChild(textnode);
+
+// Append the "li" node to the list:
+document.getElementById("seattle").appendChild(node);
+}
+
+
+// seattleShop.cookiesPerHourArr.push(randomCustPerHour());
+// let petUl = document.createElement('ul');
+// article.appendChild(petUl);
+// //                object.array go through the whole array
+// for(let i = 0; i < petOne.intertests.length; i++){
+//   let petLi = document.createElement('li');
+//   petLi.textContent = petOne.intertests[i];
+//   petUl.appendChild(petLi);
+// }
+
+//petUl -> 
+//petOne -> 
+//petLi ->
