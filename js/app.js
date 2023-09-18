@@ -66,26 +66,41 @@ function populateArray(shop, hoursOpen) {
 }
 
 populateArray(seattleShop, 14);
+populateArray(tokyoShop, 14);
+populateArray(dubaiShop, 14);
+populateArray(parisShop, 14);
+populateArray(limaShop, 14);
 
-console.log(seattleShop.cookiesPerHourArr)
+console.log("seattle cookies per hour: " + seattleShop.cookiesPerHourArr)
+console.log("tokyp cookies per hour: " + tokyoShop.cookiesPerHourArr)
+console.log("dubai cookies per hour: " + dubaiShop.cookiesPerHourArr)
+console.log("paris cookies per hour: " + parisShop.cookiesPerHourArr)
+console.log("lima cookies per hour: " + limaShop.cookiesPerHourArr)
 
-function populateHourlyUl(shop, city) {
-    // Create an "li" node:
-    const node = document.createElement("li");
-    // Create a text node:
-    const textnode = document.createTextNode(shop.randomCustPerHour());
-    // Append the text node to the "li" node:
-    node.appendChild(textnode);
-    // Append the "li" node to the list:
-    document.getElementById("city").appendChild(node);
+// function populateHourlyUl(shop) {
+//     // Create an "li" node:
+//     const node = document.createElement("li");
+//     // Create a text node:
+//     const textnode = document.createTextNode(shop.randomCustPerHour());
+//     // Append the text node to the "li" node:
+//     node.appendChild(textnode);
+//     // Append the "li" node to the list:
+//     document.getElementById("city").appendChild(node);
+// }
+//  populateHourlyUl(seattleShop);
+
+
+function populateHourlyUl(shop) {
+    let hourlyList = document.createElement('ul');
+    article.appendChild(hourlyList);
+    for (let i = 0; shop.cookiesPerHourArr.length; i++) {
+        let hour = document.createElement('li');
+        hour.textContent = shop.cookiesPerHourArr[i];
+        hourlyList.appendChild(hour)
+    }
 }
- populateHourlyUl(seattleShop);
-
-
-
 // let petUl = document.createElement('ul');
 // article.appendChild(petUl);
-// //                object.array go through the whole array
 // for(let i = 0; i < petOne.intertests.length; i++){
 //   let petLi = document.createElement('li');
 //   petLi.textContent = petOne.intertests[i];
@@ -93,5 +108,5 @@ function populateHourlyUl(shop, city) {
 // }
 
 //petUl -> 
-//petOne -> 
-//petLi ->
+//petOne -> seattleShop
+//petLi -> customersperhour
