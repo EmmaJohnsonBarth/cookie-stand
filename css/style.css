@@ -4,6 +4,7 @@ body {
     margin: 20px 20px 20px 20px;
     padding: 10px 10px 10px 10px;
     color: aliceblue;
+    
 }
 
 header {
@@ -23,7 +24,7 @@ main {
 footer {
     background-color: rgb(49, 45, 33);
     text-align: center;
-    display: inline;
+    /* display: inline; */
     margin: 20px 20px 20px 20px;
     padding: 10px 10px 10px 10px;
 }
