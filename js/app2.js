@@ -9,6 +9,9 @@ function Shop(cityName, minCustHr, maxCustHr, avgCookiesPerSale) {
     this.minCustHr = minCustHr;
     this.maxCustHr = maxCustHr;
     this.avgCookiesPerSale = avgCookiesPerSale;
+    this.customersEachHour = [];
+    this.cookiesEachHour = [];
+    this.dailyCookies = 0;
 }
 
 const seattleShop = new Shop("Seattle", 23, 65, 6.3);
@@ -17,21 +20,21 @@ const dubaiShop = new Shop("Dubai", 11, 38, 3.7);
 const parisShop = new Shop("Paris", 20, 38, 2.3);
 const limaShop = new Shop("Lima", 2, 16, 4.6);
 
-Shop.prototype.customersEachHour = [];
-Shop.prototype.cookiesEachHour = [];
-Shop.prototype.dailyCookies = 0;
-
 function randomCustPerHour(min, max) {
-    Math.floor(Math.random() * (maxCustHr - minCustHr) + minCustHr)
+    return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 function populateArray(shop, min, max) {
     for (let i = 0; i < hours.length; i++) {
-        shop.prototype.customersEachHour.push(randomCustPerHour(min, max))
+        shop.customersEachHour.push(randomCustPerHour(min, max))
     }
 }
 
-populateArray(seattleShop, seattleShop.minCustHr, seattleShop.maxCustHr)
+populateArray(seattleShop, seattleShop.minCustHr, seattleShop.maxCustHr);
+populateArray(tokyoShop, tokyoShop.minCustHr, tokyoShop.maxCustHr);
+populateArray(dubaiShop, dubaiShop.minCustHr, dubaiShop.maxCustHr);
+populateArray(parisShop, parisShop.minCustHr, parisShop.maxCustHr);
+populateArray(limaShop, limaShop.minCustHr, limaShop.maxCustHr);
 
 console.log(seattleShop, tokyoShop, dubaiShop, parisShop, limaShop)
 
