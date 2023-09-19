@@ -46,8 +46,10 @@ populateCookiesArray(limaShop, limaShop.avgCookiesPerSale);
 
 const shops = [seattleShop, tokyoShop, dubaiShop, parisShop, limaShop];
 
-// Define the render method for each shop
+const tbody = document.querySelector("tbody");
+
 function render(shop) {
+
     const row = document.createElement("tr");
     row.innerHTML = `<td>${shop.cityName}</td>`;
 
@@ -95,7 +97,7 @@ function generateFooterRow() {
 const headerRow = generateHeaderRow();
 thead.appendChild(headerRow);
 
-const tbody = document.querySelector("tbody");
+
 
 const footerRow = generateFooterRow();
 tbody.appendChild(footerRow);
