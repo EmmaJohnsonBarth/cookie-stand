@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-console.log('js is connected.')
+console.log('js is connected.');
 
 const seattleShop = {
     cityName: "Seattle",
@@ -81,34 +81,14 @@ populateArray(parisShop);
 populateArray(limaShop);
 
 console.log("seattle cookies per hour: " + seattleShop.cookiesPerHourArr)
-console.log("tokyp cookies per hour: " + tokyoShop.cookiesPerHourArr)
+console.log("tokyo cookies per hour: " + tokyoShop.cookiesPerHourArr)
 console.log("dubai cookies per hour: " + dubaiShop.cookiesPerHourArr)
 console.log("paris cookies per hour: " + parisShop.cookiesPerHourArr)
 console.log("lima cookies per hour: " + limaShop.cookiesPerHourArr)
 
-// function populateHourlyUl(shop) {
-//     const node = document.createElement("li");
-//     const textnode = document.createTextNode(shop.randomCustPerHour());
-//     node.appendChild(textnode);
-//     document.getElementById("city").appendChild(node);
-// }
-//  populateHourlyUl(seattleShop);
-
-
-// function populateHourlyUl(shop) {
-//     const nodeTitle = document.createElement('title')
-//     const nodeCity = document.createTextNode(shop)
-//     for (let i = 0; i < 13; i++) {
-//         const node = document.createElement('li');
-//         const textNode = document.createTextNode(shop.cookiesPerHourArr[i]);
-//         node.appendChild(textNode);
-//         document.getElementById("city").appendChild(node)
-//     }
-// }
-
 function populateHourlyUl(shop) {
-    // document.title(shop);
-    const header = document.querySelector('h1');
+    const header = document.createElement('h2');
+    console.log('h2: ', header);
     header.textContent = shop.cityName;
 
     const cityList = document.getElementById("city");
@@ -123,17 +103,7 @@ function populateHourlyUl(shop) {
 }
 
 populateHourlyUl(seattleShop);
-
+populateHourlyUl(tokyoShop);
+populateHourlyUl(dubaiShop);
 populateHourlyUl(parisShop);
-
-// let petUl = document.createElement('ul');
-// article.appendChild(petUl);
-// for(let i = 0; i < petOne.intertests.length; i++){
-//   let petLi = document.createElement('li');
-//   petLi.textContent = petOne.intertests[i];
-//   petUl.appendChild(petLi);
-// }
-
-//petUl -> 
-//petOne -> seattleShop
-//petLi -> customersperhour
+populateHourlyUl(limaShop);
