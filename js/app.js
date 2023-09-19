@@ -73,7 +73,7 @@ const limaShop = {
 };
 
 function populateArray(shop) {
-  console.log('shop objects:', shop);
+//   console.log('shop objects:', shop);
   for (let i = 0; i < 13; i++) {
 
     shop.cookiesPerHourArr.push(shop.randomCustPerHour());
@@ -115,11 +115,15 @@ populateArray(limaShop);
 
 function populateHourlyUl(shop) {
   // document.title(shop);
-  const header = document.querySelector('h1');
+  const header = document.createElement('h2');
+  console.log('h2: ',header);
+  console.log('object',shop.cityName);
   header.textContent = shop.cityName;
 
   const cityList = document.getElementById('city');
+  cityList.appendChild(header);
   for (let i = 0; i < shop.hoursOpen -1; i++) {
+    console.log(shop.hoursOpen - 1);
     const node = document.createElement('li');
     node.textContent = `${i + 6}:00 ${shop.cookiesPerHourArr[i]} cookies`;
     cityList.appendChild(node);
@@ -132,6 +136,8 @@ function populateHourlyUl(shop) {
 populateHourlyUl(seattleShop);
 
 populateHourlyUl(parisShop);
+
+populateHourlyUl(limaShop);
 
 // let petUl = document.createElement('ul');
 // article.appendChild(petUl);
