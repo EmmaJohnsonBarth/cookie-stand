@@ -1,6 +1,6 @@
 'use strict';
 
-console.log('js is connected.');
+console.log('app.js is connected.');
 
 const seattleShop = {
     cityName: "Seattle",
@@ -107,3 +107,21 @@ populateHourlyUl(tokyoShop);
 populateHourlyUl(dubaiShop);
 populateHourlyUl(parisShop);
 populateHourlyUl(limaShop);
+
+
+//2.  Make sure it has all of your changes from lab 06 so that you can extend the functionality. remove old console logs any comments
+
+//3. Replace all of your object literals for the salmon cookie stand with a single constructor function that
+
+// 4. when called with the 'new' keyword, it creates a new instance.
+// we are going to let storeOne = new Pet('Tom', 'Tiger', 'diabloBlanco',['Sun light', 'Mouse Toys', 'Red dots'],true, true, true);
+
+//5.Replace the lists of your data for each store
+
+//6. and build a single table of data instead
+
+//7. Break each column by the hour and complete each row with a "Daily Location Total".
+
+//8.Each cookie stand location should have a separate render() method that creates and appends its row to the table
+
+//9.The header row and footer row are each created in their own stand-alone function
