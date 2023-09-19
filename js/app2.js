@@ -24,17 +24,29 @@ function randomCustPerHour(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-function populateArray(shop, min, max) {
+function populateCustArray(shop, min, max) {
     for (let i = 0; i < hours.length; i++) {
         shop.customersEachHour.push(randomCustPerHour(min, max))
     }
 }
 
-populateArray(seattleShop, seattleShop.minCustHr, seattleShop.maxCustHr);
-populateArray(tokyoShop, tokyoShop.minCustHr, tokyoShop.maxCustHr);
-populateArray(dubaiShop, dubaiShop.minCustHr, dubaiShop.maxCustHr);
-populateArray(parisShop, parisShop.minCustHr, parisShop.maxCustHr);
-populateArray(limaShop, limaShop.minCustHr, limaShop.maxCustHr);
+function populateCookiesArray(shop, avgCookiesPerSale) {
+    for (let i = 0; i < hours.length; i++) {
+        shop.cookiesEachHour.push(shop.customersEachHour[i] * avgCookiesPerSale)
+    }
+}
+
+populateCustArray(seattleShop, seattleShop.minCustHr, seattleShop.maxCustHr);
+populateCustArray(tokyoShop, tokyoShop.minCustHr, tokyoShop.maxCustHr);
+populateCustArray(dubaiShop, dubaiShop.minCustHr, dubaiShop.maxCustHr);
+populateCustArray(parisShop, parisShop.minCustHr, parisShop.maxCustHr);
+populateCustArray(limaShop, limaShop.minCustHr, limaShop.maxCustHr);
+
+populateCookiesArray(seattleShop, seattleShop.avgCookiesPerSale);
+populateCookiesArray(tokyoShop, tokyoShop.avgCookiesPerSale);
+populateCookiesArray(dubaiShop, dubaiShop.avgCookiesPerSale);
+populateCookiesArray(parisShop, parisShop.avgCookiesPerSale);
+populateCookiesArray(limaShop, limaShop.avgCookiesPerSale);
 
 console.log(seattleShop, tokyoShop, dubaiShop, parisShop, limaShop)
 
