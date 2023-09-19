@@ -1,7 +1,3 @@
-'use strict';
-
-console.log('app2.js is connected.');
-
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 function Shop(cityName, minCustHr, maxCustHr, avgCookiesPerSale) {
@@ -21,18 +17,18 @@ const parisShop = new Shop("Paris", 20, 38, 2.3);
 const limaShop = new Shop("Lima", 2, 16, 4.6);
 
 function randomCustPerHour(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function populateCustArray(shop, min, max) {
     for (let i = 0; i < hours.length; i++) {
-        shop.customersEachHour.push(randomCustPerHour(min, max))
+        shop.customersEachHour.push(randomCustPerHour(min, max));
     }
 }
 
 function populateCookiesArray(shop, avgCookiesPerSale) {
     for (let i = 0; i < hours.length; i++) {
-        shop.cookiesEachHour.push(shop.customersEachHour[i] * avgCookiesPerSale)
+        shop.cookiesEachHour.push(shop.customersEachHour[i] * avgCookiesPerSale);
     }
 }
 
@@ -48,13 +44,12 @@ populateCookiesArray(dubaiShop, dubaiShop.avgCookiesPerSale);
 populateCookiesArray(parisShop, parisShop.avgCookiesPerSale);
 populateCookiesArray(limaShop, limaShop.avgCookiesPerSale);
 
-console.log(seattleShop, tokyoShop, dubaiShop, parisShop, limaShop)
-
 const shops = [seattleShop, tokyoShop, dubaiShop, parisShop, limaShop];
 
+// Define the render method for each shop
 function render(shop) {
     const row = document.createElement("tr");
-    row.innerHTML = `<td>${shop.cityName}</td>`
+    row.innerHTML = `<td>${shop.cityName}</td>`;
 
     let totalCookies = 0;
 
@@ -69,11 +64,10 @@ function render(shop) {
 }
 
 render(seattleShop);
-render(tokyoShop);
 render(dubaiShop);
+render(limaShop)
 render(parisShop);
-render(limaShop);
-
+render(tokyoShop);
 
 function generateFooterRow() {
     const footerRow = document.createElement("tr");
@@ -83,7 +77,7 @@ function generateFooterRow() {
 
     for (const shop of shops) {
         for (let i = 0; i < shop.cookiesEachHour.length; i++) {
-            hourlyTotals[i] += shop.cookiesEachHour[i]
+            hourlyTotals[i] += shop.cookiesEachHour[i];
         }
     }
 
@@ -94,20 +88,14 @@ function generateFooterRow() {
         footerRow.innerHTML += `<td>${total}</td>`;
     }
 
-    footerRow.innerHTML += `<td>${grandTotal}</td>`
+    footerRow.innerHTML += `<td>${grandTotal}</td>`;
     return footerRow;
 }
 
 const headerRow = generateHeaderRow();
 thead.appendChild(headerRow);
 
-for (const shop of shops) {
-    shop.render();
-}
-
+const tbody = document.querySelector("tbody");
 
 const footerRow = generateFooterRow();
 tbody.appendChild(footerRow);
-//8.Each cookie stand location should have a separate render() method that creates and appends its row to the table
-
-//9.The header row and footer row are each created in their own stand-alone function
