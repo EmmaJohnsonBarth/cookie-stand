@@ -1,3 +1,8 @@
+document.addEventListener("DOMContentLoaded", function() {
+
+console.log('app3.js is connected')
+
+
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 function Shop(cityName, minCustHr, maxCustHr, avgCookiesPerSale) {
@@ -46,8 +51,10 @@ populateCookiesArray(limaShop, limaShop.avgCookiesPerSale);
 
 const shops = [seattleShop, tokyoShop, dubaiShop, parisShop, limaShop];
 
-// Define the render method for each shop
+const tbody = document.querySelector("tbody");
+
 function render(shop) {
+
     const row = document.createElement("tr");
     row.innerHTML = `<td>${shop.cityName}</td>`;
 
@@ -95,7 +102,9 @@ function generateFooterRow() {
 const headerRow = generateHeaderRow();
 thead.appendChild(headerRow);
 
-const tbody = document.querySelector("tbody");
+
 
 const footerRow = generateFooterRow();
 tbody.appendChild(footerRow);
+
+});
