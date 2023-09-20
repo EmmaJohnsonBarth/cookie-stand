@@ -12,10 +12,52 @@ header {
     margin: 20px 20px 20px 20px;
     padding: 10px 10px 10px 10px;
     text-align: center;
+    border: 1vw;
+    border-style: double;
+    border-color: rgb(244, 145, 96);
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 30px;
+    margin: 2vw;
+}
+
+.header-fish {
+    width: 100px;
+}
+
+.locations {
+    font-style: italic;
+}
+
+ul li {
+    /* list-style-type: circle; */
+    text-align: center;
+    padding: 5px;
+    float: inline-start;
+}
+
+div.contact {
+    border-style: dotted;
+    border: 1vw;
+    border-color: aliceblue;
+}
+
+.fampic {
+    width: 50%;
+}
+
+.cutter {
+    width: 30vw;
+}
+
+/* .shirt {
+    float: right;
+} */
+
+h2 {
+    font-size: 18px;
+    text-decoration: underline;
 }
 
 main {
@@ -30,4 +72,28 @@ footer {
     text-align: center;
     margin: 20px 20px 20px 20px;
     padding: 10px 10px 10px 10px;
+    color: aliceblue
+
 }
+
+/* https://www.w3schools.com/css/css_link.asp */
+
+a:link {
+    color: aliceblue;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: rgb(162, 180, 196);
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color:aliceblue;
+    text-decoration: underline;
+  }
+  
+  /* selected link */
+  a:active {
+    color: aliceblue;
+  }
