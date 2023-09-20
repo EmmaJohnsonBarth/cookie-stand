@@ -1,5 +1,5 @@
-
 body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: rgb(17, 31, 31);
     margin: 20px 20px 20px 20px;
     padding: 10px 10px 10px 10px;
@@ -14,6 +14,10 @@ header {
     text-align: center;
 }
 
+h1 {
+    font-size: 24px;
+}
+
 main {
     background-color: rgb(19, 56, 42);
     margin: 20px 20px 20px 20px;
@@ -24,7 +28,6 @@ main {
 footer {
     background-color: rgb(49, 45, 33);
     text-align: center;
-    /* display: inline; */
     margin: 20px 20px 20px 20px;
     padding: 10px 10px 10px 10px;
 }
