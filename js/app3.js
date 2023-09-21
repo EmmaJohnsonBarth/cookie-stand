@@ -54,51 +54,53 @@ console.log(shops);
 const tbody = document.querySelector('tbody');
 
 //!!! Edit this function so that it displays hourly totals
-function render(shop) {
-  const row = document.createElement('tr');
-  row.innerHTML = `<td>${shop.cityName}</td>`;
+
+function renderDailySum(shop) {
+  const totalColumn = document.createElement('tr');
+  totalColumn.innerHTML = `<td>${shop.cityName}</td>`;
 
   let dailyTotal = 0;
 
   for (const cookies of shop.cookiesEachHour) {
-    row.innerHTML += `<td>${cookies}</td>`;
+    totalColumn.innerHTML += `<td>${cookies}</td>`;
     dailyTotal += cookies;
   }
-  row.innerHTML += `<td>${dailyTotal}</td>`;
-  tbody.appendChild(row);
+  totalColumn.innerHTML += `<td>${dailyTotal}</td>`;
+  tbody.appendChild(totalColumn);
 }
+
+
+function renderFooterRow(hours) {
+  const footerRow = document.createElement('tr');
+  footerRow.innerHTML = '<td>Total</td>';
+  const hourlyTotals = new Array(hours.length).fill(0);
+  for (const shop of shops) {
+    for (let i = 0; i < hours.length; i++) {
+      hourlyTotals[i] += shop.cookiesEachHour[i];
+    }
+  }
+  let totalOfTotals = 0;
+  for (const total of hourlyTotals) {
+    totalOfTotals += total;
+  }
+  for (const total of hourlyTotals) {
+    footerRow.innerHTML += `<td>${total}</td>`;
+  }
+  footerRow.innerHTML += `<td>${totalOfTotals}</td>`;
+  tbody.appendChild(footerRow);
+}
+
+
+
 
 // Render the data for each shop here
 for (const shop of shops) {
-  render(shop);
+  renderDailySum(shop);
 }
 
-// function generateFooterRow() {
-//   const footerRow = document.createElement('tr');
-//   footerRow.innerHTML = '<td>Total</td>';
 
-//   const hourlyTotals = new Array(hours.length).fill(0);
-//   let totalOfTotals = 0;
+renderFooterRow(hours);
 
-//   for (const shop of shops) {
-//     for (let i = 0; i < shop.cookiesEachHour.length; i++) {
-//       hourlyTotals[i] += shop.cookiesEachHour[i];
-//     }
-//     totalOfTotals += calculateDailyTotal(shop);
-//   }
-
-//   for (const total of hourlyTotals) {
-//     footerRow.innerHTML += `<td>${total}</td>`;
-//   }
-//   footerRow.innerHTML += `<td>${totalOfTotals}</td>`;
-//   return footerRow;
-// }
-
-// const footerRow = generateFooterRow();
-// tbody.appendChild(footerRow);
-
-
-///
 
 
 function handleFormSubmitted(event) {
@@ -115,6 +117,7 @@ function handleFormSubmitted(event) {
   populateCookiesArray(newShop, newShop.avgCookiesPerSale);
 
   shops.push(newShop);
+  console.log(shops)
   render(newShop);
 }
 
