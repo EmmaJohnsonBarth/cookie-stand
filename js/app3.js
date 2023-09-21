@@ -73,44 +73,52 @@ for (const shop of shops) {
   render(shop);
 }
 
-function generateFooterRow() {
-  const footerRow = document.createElement('tr');
-  footerRow.innerHTML = '<td>Total</td>';
+// function generateFooterRow() {
+//   const footerRow = document.createElement('tr');
+//   footerRow.innerHTML = '<td>Total</td>';
 
-  const hourlyTotals = new Array(hours.length).fill(0);
-  let totalOfTotals = 0;
+//   const hourlyTotals = new Array(hours.length).fill(0);
+//   let totalOfTotals = 0;
 
-  for (const shop of shops) {
-    for (let i = 0; i < shop.cookiesEachHour.length; i++) {
-      hourlyTotals[i] += shop.cookiesEachHour[i];
-    }
-    totalOfTotals += calculateDailyTotal(shop);
-  }
+//   for (const shop of shops) {
+//     for (let i = 0; i < shop.cookiesEachHour.length; i++) {
+//       hourlyTotals[i] += shop.cookiesEachHour[i];
+//     }
+//     totalOfTotals += calculateDailyTotal(shop);
+//   }
 
-  for (const total of hourlyTotals) {
-    footerRow.innerHTML += `<td>${total}</td>`;
-  }
-  footerRow.innerHTML += `<td>${totalOfTotals}</td>`;
-  return footerRow;
-}
+//   for (const total of hourlyTotals) {
+//     footerRow.innerHTML += `<td>${total}</td>`;
+//   }
+//   footerRow.innerHTML += `<td>${totalOfTotals}</td>`;
+//   return footerRow;
+// }
 
-const footerRow = generateFooterRow();
-tbody.appendChild(footerRow);
+// const footerRow = generateFooterRow();
+// tbody.appendChild(footerRow);
+
+
+///
+
 
 function handleFormSubmitted(event) {
   event.preventDefault();
+  console.log('made it to the handle submit function', event.target);
   event.stopPropagation();
   let shopName = event.target.name.value;
   let minInput = event.target.min.value;
   let maxInput = event.target.max.value;
   let avgCookie = event.target.avg.value;
 
-  let newShop = new Shop(shopName, minInput,maxInput,avgCookie);
+  let newShop = new Shop(shopName, minInput, maxInput, avgCookie);
+  populateCustArray(newShop, newShop.minCustHr, newShop.maxCustHr);
+  populateCookiesArray(newShop, newShop.minCustHr, newShop.maxCustHr);
 
-  newShop.render();
-
-  let form=document.getElementById('new-shop');
-  form.reset();
+  shops.push(newShop);
+  render(newShop);
 }
+
+let form = document.getElementById('new-shop');
+form.reset();
 
 form.addEventListener('submit', handleFormSubmitted);
