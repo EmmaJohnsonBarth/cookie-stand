@@ -117,8 +117,9 @@ function handleFormSubmitted(event) {
   populateCookiesArray(newShop, newShop.avgCookiesPerSale);
 
   shops.push(newShop);
-  console.log(shops)
-  render(newShop);
+  console.log(shops);
+  renderDailySum(newShop);
+  renderFooterRow(hours);
 }
 
 let form = document.getElementById('new-shop');

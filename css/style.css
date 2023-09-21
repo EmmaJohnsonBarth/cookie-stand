@@ -97,3 +97,23 @@ a:link {
   a:active {
     color: aliceblue;
   }
+
+
+/* https://www.w3schools.com/css/css_table.asp */
+table, th, td {
+    margin: 2vw;
+    padding: 1vw;
+    border: 3px solid;
+    background-color: rgb(241, 236, 224);
+    color: rgb(39, 39, 51);
+    word-spacing: 3%;
+}
+
+th {
+    font-weight: bold;
+}
+
+table {
+    border: 10px solid rgb(33, 30, 24)
+}
+
