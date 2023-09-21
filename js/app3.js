@@ -112,7 +112,7 @@ function handleFormSubmitted(event) {
 
   let newShop = new Shop(shopName, minInput, maxInput, avgCookie);
   populateCustArray(newShop, newShop.minCustHr, newShop.maxCustHr);
-  populateCookiesArray(newShop, newShop.minCustHr, newShop.maxCustHr);
+  populateCookiesArray(newShop, newShop.avgCookiesPerSale);
 
   shops.push(newShop);
   render(newShop);
