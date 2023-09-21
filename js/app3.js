@@ -126,3 +126,6 @@ let form = document.getElementById('new-shop');
 form.reset();
 
 form.addEventListener('submit', handleFormSubmitted);
+
+// let cityList = document.querySelectorAll("p");
+// cityList[]

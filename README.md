@@ -2,20 +2,33 @@
 
 ## Project Name
 
-I build an app with a direct and powerful purpose. It does all of the things that it accomplishes well. I should describe the purpose and functionality so those that visit my README understand the app
+The purpose of this site is to demonstrate proficiency in web development for Code 201.
 
-### Author: Student/Group Name
+### Author: Emma Johnson-Barth
 
 ### Links and Resources
 
-* [submission PR](http://xyz.com)
-* Any Links you used as reference
+* [Github](https://github.com/EmmaJohnsonBarth/cookie-stand)
+* [w3 schools](https://www.w3schools.com/)
+* [MDN Web Docs](https://developer.mozilla.org/en-US/)
+
 
 ### Lighthouse Accessibility Report Score
 
-* Provide a screenshot of your score after running a Lighthouse Accessibility report.
+[Lighthouse Report Score: 89](images/Screenshot%202023-09-21%20170525.png)
 
 ### Reflections and Comments
 
-* Consider including the answers to your daily journal and submission questions here
-* This is also a good place to reflect on the tools and resources used and learned
+Skills developed over the course of programming this site: 
+
+- Domain Modeling, Intro to the DOM, and Object Literal Notation
+
+- HTML Tables and JS Constructor Functions
+
+- Layout with CSS
+
+- Forms and Events
+
+### License 
+
+Distributed under the MIT License. See LICENSE.md for more information.
