@@ -58,9 +58,13 @@ function render(shop) {
     const row = document.createElement("tr");
     row.innerHTML = `<td>${shop.cityName}</td>`;
 
+    let dailyTotal = 0;
+
     for (const cookies of shop.cookiesEachHour) {
         row.innerHTML += `<td>${cookies}</td>`;
+        dailyTotal += cookies;
     }
+    row.innerHTML += `<td>${dailyTotal}</td>`;
     tbody.appendChild(row);
 }
 
@@ -86,20 +90,22 @@ for (const shop of shops) {
 
 function generateFooterRow() {
     const footerRow = document.createElement("tr");
-    footerRow.innerHTML = `<td>Total</td>`;
+    footerRow.innerHTML = '<td>Total</td>';
 
     const hourlyTotals = new Array(hours.length).fill(0);
+    let totalOfTotals = 0;
 
     for (const shop of shops) {
         for (let i = 0; i < shop.cookiesEachHour.length; i++) {
             hourlyTotals[i] += shop.cookiesEachHour[i];
         }
+        totalOfTotals += calculateDailyTotal(shop);
     }
 
     for (const total of hourlyTotals) {
         footerRow.innerHTML += `<td>${total}</td>`;
     }
-
+    footerRow.innerHTML += `<td>${totalOfTotals}</td>`;
     return footerRow;
 }
 
