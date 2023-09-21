@@ -1,8 +1,6 @@
-// document.addEventListener("DOMContentLoaded", function () {
-
-// The total of each hour at all stores is off 2 over the accurate total amount, but is working for the most part! - Tricia
-
 console.log('app3.js is connected')
+
+// !!!You were super close! - Tricia
 
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
@@ -51,57 +49,46 @@ populateCookiesArray(parisShop, parisShop.avgCookiesPerSale);
 populateCookiesArray(limaShop, limaShop.avgCookiesPerSale);
 
 const shops = [seattleShop, tokyoShop, dubaiShop, parisShop, limaShop];
-
 console.log(shops)
 
-//document.querySelector grabs the first "tbody"
-//getElementById() only works with ID attributes, while querySelector() can work with any CSS selector.
 const tbody = document.querySelector("tbody");
 
+//!!! Edit this function so that it displays hourly totals
 function render(shop) {
-
-    //document.createElement creates a "tr" element
-    //a <tr> element defines a row in an HTML table
     const row = document.createElement("tr");
-    //.innerHTML sets or returns the HTML content (inner HTML) of an element
     row.innerHTML = `<td>${shop.cityName}</td>`;
 
-    let totalCookies = 0;
-
-    for (const custCount of shop.customersEachHour) {
-        const cookies = Math.round(custCount * shop.avgCookiesPerSale);
-        totalCookies += cookies;
+    for (const cookies of shop.cookiesEachHour) {
         row.innerHTML += `<td>${cookies}</td>`;
     }
-
-    row.innerHTML += `<td>${totalCookies}</td>`;
     tbody.appendChild(row);
 }
 
-render(seattleShop);
-render(dubaiShop);
-render(limaShop)
-render(parisShop);
-render(tokyoShop);
-
-function generateHeaderRow() {
-    const headerRow = document.createElement("tr");
-    headerRow.innerHTML = `<th>City</th>`;
-
-    for (const hour of hours) {
-        headerRow.innerHTML += `<th>${hour}</th>`;
-    }
-
-    headerRow.innerHTML += `<th>Daily Total</th>`;
-
-    return headerRow;
+// Render the data for each shop here
+for (const shop of shops) {
+    render(shop);
 }
+
+// !!!You can implement the Header through js like this and then use a thead tag with an id in your sales.html and get rid of the th tags with the times
+
+// function generateHeaderRow() {
+//     const headerRow = document.createElement("tr");
+//     headerRow.innerHTML = `<th>City</th>`;
+
+//     for (const hour of hours) {
+//         headerRow.innerHTML += `<th>${hour}</th>`;
+//     }
+
+//     headerRow.innerHTML += `<th>Daily Total</th>`;
+
+//     return headerRow;
+// }
 
 function generateFooterRow() {
     const footerRow = document.createElement("tr");
     footerRow.innerHTML = `<td>Total</td>`;
 
-    let hourlyTotals = Array.from({ length: hours.length }, () => 0);
+    const hourlyTotals = new Array(hours.length).fill(0);
 
     for (const shop of shops) {
         for (let i = 0; i < shop.cookiesEachHour.length; i++) {
@@ -109,40 +96,17 @@ function generateFooterRow() {
         }
     }
 
-    let grandTotal = 0;
-
     for (const total of hourlyTotals) {
-        grandTotal += total;
         footerRow.innerHTML += `<td>${total}</td>`;
     }
 
-    footerRow.innerHTML += `<td>${grandTotal}</td>`;
     return footerRow;
 }
 
+// !!!Then call the header function here
 // const headerRow = generateHeaderRow();
 // thead.appendChild(headerRow);
 
 const footerRow = generateFooterRow();
 tbody.appendChild(footerRow);
 
-;
-Shop.prototype.render = function () {
-    let tableRow = document.createElement('tr');
-    let locationCell = document.createElement('td');
-    locationCell.textContent = this.cityName;
-    tableRow.appendChild(locationCell)
-
-    // for (let hour = 0; hour < hours.length; hour++) {
-    // }
-    // return tableRow;
-};
-
-function renderShops() {
-    for (const shop of shops) {
-        const row = shop.render();
-        tbody.appendChild(row);
-    }
-}
-
-renderShops();
