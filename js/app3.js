@@ -1,39 +1,39 @@
-console.log('app3.js is connected')
+console.log('app3.js is connected');
 
 // !!!You were super close! - Tricia
 
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 function Shop(cityName, minCustHr, maxCustHr, avgCookiesPerSale) {
-    this.cityName = cityName;
-    this.minCustHr = minCustHr;
-    this.maxCustHr = maxCustHr;
-    this.avgCookiesPerSale = avgCookiesPerSale;
-    this.customersEachHour = [];
-    this.cookiesEachHour = [];
-    this.dailyCookies = 0;
+  this.cityName = cityName;
+  this.minCustHr = minCustHr;
+  this.maxCustHr = maxCustHr;
+  this.avgCookiesPerSale = avgCookiesPerSale;
+  this.customersEachHour = [];
+  this.cookiesEachHour = [];
+  this.dailyCookies = 0;
 }
 
-const seattleShop = new Shop("Seattle", 23, 65, 6.3);
-const tokyoShop = new Shop("Tokyo", 3, 24, 1.2);
-const dubaiShop = new Shop("Dubai", 11, 38, 3.7);
-const parisShop = new Shop("Paris", 20, 38, 2.3);
-const limaShop = new Shop("Lima", 2, 16, 4.6);
+const seattleShop = new Shop('Seattle', 23, 65, 6.3);
+const tokyoShop = new Shop('Tokyo', 3, 24, 1.2);
+const dubaiShop = new Shop('Dubai', 11, 38, 3.7);
+const parisShop = new Shop('Paris', 20, 38, 2.3);
+const limaShop = new Shop('Lima', 2, 16, 4.6);
 
 function randomCustPerHour(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function populateCustArray(shop, min, max) {
-    for (let i = 0; i < hours.length; i++) {
-        shop.customersEachHour.push(randomCustPerHour(min, max));
-    }
+  for (let i = 0; i < hours.length; i++) {
+    shop.customersEachHour.push(randomCustPerHour(min, max));
+  }
 }
 
 function populateCookiesArray(shop, avgCookiesPerSale) {
-    for (let i = 0; i < hours.length; i++) {
-        shop.cookiesEachHour.push(Math.ceil(shop.customersEachHour[i] * avgCookiesPerSale));
-    }
+  for (let i = 0; i < hours.length; i++) {
+    shop.cookiesEachHour.push(Math.ceil(shop.customersEachHour[i] * avgCookiesPerSale));
+  }
 }
 
 populateCustArray(seattleShop, seattleShop.minCustHr, seattleShop.maxCustHr);
@@ -49,70 +49,83 @@ populateCookiesArray(parisShop, parisShop.avgCookiesPerSale);
 populateCookiesArray(limaShop, limaShop.avgCookiesPerSale);
 
 const shops = [seattleShop, tokyoShop, dubaiShop, parisShop, limaShop];
-console.log(shops)
+console.log(shops);
 
-const tbody = document.querySelector("tbody");
+const tbody = document.querySelector('tbody');
 
 //!!! Edit this function so that it displays hourly totals
-function render(shop) {
-    const row = document.createElement("tr");
-    row.innerHTML = `<td>${shop.cityName}</td>`;
 
-    let dailyTotal = 0;
+function renderDailySum(shop) {
+  const totalColumn = document.createElement('tr');
+  totalColumn.innerHTML = `<td>${shop.cityName}</td>`;
 
-    for (const cookies of shop.cookiesEachHour) {
-        row.innerHTML += `<td>${cookies}</td>`;
-        dailyTotal += cookies;
-    }
-    row.innerHTML += `<td>${dailyTotal}</td>`;
-    tbody.appendChild(row);
+  let dailyTotal = 0;
+
+  for (const cookies of shop.cookiesEachHour) {
+    totalColumn.innerHTML += `<td>${cookies}</td>`;
+    dailyTotal += cookies;
+  }
+  totalColumn.innerHTML += `<td>${dailyTotal}</td>`;
+  tbody.appendChild(totalColumn);
 }
+
+
+function renderFooterRow(hours) {
+  const footerRow = document.createElement('tr');
+  footerRow.innerHTML = '<td>Total</td>';
+  const hourlyTotals = new Array(hours.length).fill(0);
+  for (const shop of shops) {
+    for (let i = 0; i < hours.length; i++) {
+      hourlyTotals[i] += shop.cookiesEachHour[i];
+    }
+  }
+  let totalOfTotals = 0;
+  for (const total of hourlyTotals) {
+    totalOfTotals += total;
+  }
+  for (const total of hourlyTotals) {
+    footerRow.innerHTML += `<td>${total}</td>`;
+  }
+  footerRow.innerHTML += `<td>${totalOfTotals}</td>`;
+  tbody.appendChild(footerRow);
+}
+
+
+
 
 // Render the data for each shop here
 for (const shop of shops) {
-    render(shop);
+  renderDailySum(shop);
 }
 
-// !!!You can implement the Header through js like this and then use a thead tag with an id in your sales.html and get rid of the th tags with the times
 
-// function generateHeaderRow() {
-//     const headerRow = document.createElement("tr");
-//     headerRow.innerHTML = `<th>City</th>`;
+renderFooterRow(hours);
 
-//     for (const hour of hours) {
-//         headerRow.innerHTML += `<th>${hour}</th>`;
-//     }
 
-//     headerRow.innerHTML += `<th>Daily Total</th>`;
 
-//     return headerRow;
-// }
+function handleFormSubmitted(event) {
+  event.preventDefault();
+  console.log('made it to the handle submit function', event.target);
+  event.stopPropagation();
+  let shopName = event.target.name.value;
+  let minInput = event.target.min.value;
+  let maxInput = event.target.max.value;
+  let avgCookie = event.target.avg.value;
 
-function generateFooterRow() {
-    const footerRow = document.createElement("tr");
-    footerRow.innerHTML = '<td>Total</td>';
+  let newShop = new Shop(shopName, minInput, maxInput, avgCookie);
+  populateCustArray(newShop, newShop.minCustHr, newShop.maxCustHr);
+  populateCookiesArray(newShop, newShop.avgCookiesPerSale);
 
-    const hourlyTotals = new Array(hours.length).fill(0);
-    let totalOfTotals = 0;
-
-    for (const shop of shops) {
-        for (let i = 0; i < shop.cookiesEachHour.length; i++) {
-            hourlyTotals[i] += shop.cookiesEachHour[i];
-        }
-        totalOfTotals += calculateDailyTotal(shop);
-    }
-
-    for (const total of hourlyTotals) {
-        footerRow.innerHTML += `<td>${total}</td>`;
-    }
-    footerRow.innerHTML += `<td>${totalOfTotals}</td>`;
-    return footerRow;
+  shops.push(newShop);
+  console.log(shops);
+  renderDailySum(newShop);
+  renderFooterRow(hours);
 }
 
-// !!!Then call the header function here
-// const headerRow = generateHeaderRow();
-// thead.appendChild(headerRow);
+let form = document.getElementById('new-shop');
+form.reset();
 
-const footerRow = generateFooterRow();
-tbody.appendChild(footerRow);
+form.addEventListener('submit', handleFormSubmitted);
 
+// let cityList = document.querySelectorAll("p");
+// cityList[]
