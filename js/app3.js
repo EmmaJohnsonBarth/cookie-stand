@@ -127,14 +127,6 @@ form.reset();
 
 form.addEventListener('submit', handleFormSubmitted);
 
-
-
-// let cityList = document.querySelectorAll("p");
-// cityList[]
-
-
-
-
 //Slideshow:
 // https://www.w3schools.com/w3css/w3css_slideshow.asp
 
