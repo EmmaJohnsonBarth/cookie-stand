@@ -118,14 +118,21 @@ function handleFormSubmitted(event) {
 
   shops.push(newShop);
   console.log(shops);
+  // Clear the existing footer row
+  tbody.removeChild(tbody.lastChild);
   renderDailySum(newShop);
   renderFooterRow(hours);
+
 }
+
+
 
 let form = document.getElementById('new-shop');
 form.reset();
 
 form.addEventListener('submit', handleFormSubmitted);
+
+
 
 //Slideshow:
 // https://www.w3schools.com/w3css/w3css_slideshow.asp

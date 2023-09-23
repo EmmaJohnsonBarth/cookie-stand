@@ -92,20 +92,17 @@ a:link {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* visited link */
 a:visited {
     color: rgb(162, 180, 196);
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* mouse over link */
 a:hover {
     color: aliceblue;
     text-decoration: underline;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* selected link */
 a:active {
     color: aliceblue;
     font-family: Georgia, 'Times New Roman', Times, serif;
