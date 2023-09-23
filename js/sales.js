@@ -1,4 +1,4 @@
-console.log('app3.js is connected');
+console.log('js is connected');
 
 // !!!You were super close! - Tricia
 
@@ -125,35 +125,8 @@ function handleFormSubmitted(event) {
 
 }
 
-
-
 let form = document.getElementById('new-shop');
 form.reset();
 
 form.addEventListener('submit', handleFormSubmitted);
 
-
-
-//Slideshow:
-// https://www.w3schools.com/w3css/w3css_slideshow.asp
-
-let slideIndex = 0;
-carousel();
-
-function carousel() {
-  let slides = document.querySelectorAll('.slide');
-  // console.log('slides length: ', slides.length);
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = 'none';
-  }
-
-  slideIndex++;
-
-  if (slideIndex > slides.length) {
-    slideIndex = 1;
-  }
-
-  slides[slideIndex - 1].style.display = 'block';
-
-  setTimeout(carousel, 2000);
-}
