@@ -127,5 +127,34 @@ form.reset();
 
 form.addEventListener('submit', handleFormSubmitted);
 
+
+
 // let cityList = document.querySelectorAll("p");
 // cityList[]
+
+
+
+
+//Slideshow:
+// https://www.w3schools.com/w3css/w3css_slideshow.asp
+
+let slideIndex = 0;
+carousel();
+
+function carousel() {
+  let slides = document.querySelectorAll('.slide');
+  console.log('slides length: ', slides.length)
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
+
+  slideIndex++;
+
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+
+  slides[slideIndex - 1].style.display = 'block';
+
+  setTimeout(carousel, 2000);
+}
