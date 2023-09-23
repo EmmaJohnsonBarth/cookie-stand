@@ -19,7 +19,7 @@ header {
 h1 {
     font-family: 'Hepta Slab', serif;
     font-size: 36px;
-    color:rgb(232, 202, 188);
+    color: rgb(232, 202, 188);
     margin: 2vw;
     font-weight: 700;
 }
@@ -35,7 +35,6 @@ h1 {
 }
 
 ul li {
-    /* list-style-type: circle; */
     text-align: center;
     padding: 5px;
     float: inline-start;
@@ -44,14 +43,12 @@ ul li {
 }
 
 .slideShow {
-    align-items: center;
-    max-width: 500px;
-    /* display: none; */
+    display: contents;
+    align-content: center;
 }
 
 img {
     max-width: 500px;
-    align-items: center;
 }
 
 h2 {
@@ -76,11 +73,11 @@ footer {
 }
 
 .contact {
-    border: 0.5vw solid rgb(90,96,66);
+    border: 0.5vw solid rgb(90, 96, 66);
     line-height: 150%;
     padding: 2% 0% 2% 0%;
     margin: 2vw 0vw 2vw 0vw;
-    background-color: rgb(40,45,41);
+    background-color: rgb(40, 45, 41);
 }
 
 .shirt {
@@ -134,4 +131,15 @@ th {
 
 table {
     border: 10px solid rgb(33, 30, 24)
+}
+
+#new-shop {
+    border: 0.5vw solid rgb(90, 96, 66);
+    background-color: rgb(40, 45, 41);
+    line-height: 150%;
+    margin: 25px 100px 25px 100px;
+}
+
+legend {
+    text-decoration: underline;
 }

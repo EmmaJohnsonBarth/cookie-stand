@@ -135,7 +135,7 @@ carousel();
 
 function carousel() {
   let slides = document.querySelectorAll('.slide');
-  console.log('slides length: ', slides.length)
+  // console.log('slides length: ', slides.length);
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
   }
