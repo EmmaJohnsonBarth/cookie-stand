@@ -129,9 +129,3 @@ let form = document.getElementById('new-shop');
 form.reset();
 
 form.addEventListener('submit', handleFormSubmitted);
-
-<<<<<<< HEAD:js/sales.js
-=======
-// let cityList = document.querySelectorAll("p");
-// cityList[]
->>>>>>> main:js/app3.js
