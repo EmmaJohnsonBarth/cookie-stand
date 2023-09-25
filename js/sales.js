@@ -1,4 +1,4 @@
-console.log('app3.js is connected');
+console.log('js is connected');
 
 // !!!You were super close! - Tricia
 
@@ -118,14 +118,14 @@ function handleFormSubmitted(event) {
 
   shops.push(newShop);
   console.log(shops);
+  // Clear the existing footer row
+  tbody.removeChild(tbody.lastChild);
   renderDailySum(newShop);
   renderFooterRow(hours);
+
 }
 
 let form = document.getElementById('new-shop');
 form.reset();
 
 form.addEventListener('submit', handleFormSubmitted);
-
-// let cityList = document.querySelectorAll("p");
-// cityList[]

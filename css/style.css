@@ -80,6 +80,23 @@ footer {
 
 a:link {
     color: aliceblue;
+<<<<<<< HEAD
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a:visited {
+    color: rgb(162, 180, 196);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a:hover {
+    color: aliceblue;
+    text-decoration: underline;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a:active {
+=======
   }
   
   /* visited link */
@@ -95,11 +112,23 @@ a:link {
   
   /* selected link */
   a:active {
+>>>>>>> main
     color: aliceblue;
   }
 
 
 /* https://www.w3schools.com/css/css_table.asp */
+<<<<<<< HEAD
+table,
+th,
+td {
+    margin: 1vw;
+    padding: 0.5vw;
+    border: 3px solid;
+    background-color: rgb(241, 236, 224);
+    color: rgb(39, 39, 51);
+    font-family: Arial, Helvetica, sans-serif;
+=======
 table, th, td {
     margin: 2vw;
     padding: 1vw;
@@ -107,6 +136,7 @@ table, th, td {
     background-color: rgb(241, 236, 224);
     color: rgb(39, 39, 51);
     word-spacing: 3%;
+>>>>>>> main
 }
 
 th {
