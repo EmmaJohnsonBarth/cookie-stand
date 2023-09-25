@@ -1,9 +1,10 @@
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: antiquewhite;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: rgb(17, 31, 31);
     margin: 20px 20px 20px 20px;
     padding: 10px 10px 10px 10px;
+    color: aliceblue;
+    
 }
 
 header {
@@ -13,15 +14,12 @@ header {
     text-align: center;
     border: 1vw;
     border-style: double;
-    border-color: rgb(128, 67, 37);
+    border-color: rgb(244, 145, 96);
 }
 
 h1 {
-    font-family: 'Hepta Slab', serif;
-    font-size: 36px;
-    color: rgb(232, 202, 188);
+    font-size: 30px;
     margin: 2vw;
-    font-weight: 700;
 }
 
 .header-fish {
@@ -30,31 +28,36 @@ h1 {
 
 .locations {
     font-style: italic;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: antiquewhite
 }
 
 ul li {
+    /* list-style-type: circle; */
     text-align: center;
     padding: 5px;
     float: inline-start;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: antiquewhite
 }
 
-.slideShow {
-    display: contents;
-    align-content: center;
+div.contact {
+    border-style: dotted;
+    border: 1vw;
+    border-color: aliceblue;
 }
 
-img {
-    max-width: 500px;
+.fampic {
+    width: 50%;
 }
+
+.cutter {
+    width: 30vw;
+}
+
+/* .shirt {
+    float: right;
+} */
 
 h2 {
     font-size: 18px;
     text-decoration: underline;
-    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 main {
@@ -70,59 +73,40 @@ footer {
     margin: 20px 20px 20px 20px;
     padding: 10px 10px 10px 10px;
     color: aliceblue
-}
 
-.contact {
-    border: 0.5vw solid rgb(90, 96, 66);
-    line-height: 150%;
-    padding: 2% 0% 2% 0%;
-    margin: 2vw 0vw 2vw 0vw;
-    background-color: rgb(40, 45, 41);
-}
-
-.shirt {
-    border: 0.5vw solid rgb(90, 96, 66);
-    background-color: rgb(40, 45, 41);
 }
 
 /* https://www.w3schools.com/css/css_link.asp */
 
 a:link {
     color: aliceblue;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-/* visited link */
-a:visited {
+  }
+  
+  /* visited link */
+  a:visited {
     color: rgb(162, 180, 196);
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-/* mouse over link */
-a:hover {
-    color: aliceblue;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color:aliceblue;
     text-decoration: underline;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-/* selected link */
-a:active {
+  }
+  
+  /* selected link */
+  a:active {
     color: aliceblue;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
+  }
 
 
 /* https://www.w3schools.com/css/css_table.asp */
-table,
-th,
-td {
+table, th, td {
     margin: 2vw;
     padding: 1vw;
     border: 3px solid;
     background-color: rgb(241, 236, 224);
     color: rgb(39, 39, 51);
     word-spacing: 3%;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 th {
@@ -133,13 +117,5 @@ table {
     border: 10px solid rgb(33, 30, 24)
 }
 
-#new-shop {
-    border: 0.5vw solid rgb(90, 96, 66);
-    background-color: rgb(40, 45, 41);
-    line-height: 150%;
-    margin: 25px 100px 25px 100px;
-}
 
-legend {
-    text-decoration: underline;
-}
+
